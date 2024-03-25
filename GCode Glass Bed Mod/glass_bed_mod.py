@@ -22,7 +22,7 @@ class GCodeEditor:
         self.layer_menu.bind("<<ComboboxSelected>>", self.update_fields)
 
         self.fields = {}
-        for setting in ["Print Speed", "Nozzle Temperature", "Bed Temperature", "Layer Height"]:
+        for setting in ["Print Speed", "Nozzle Temperature", "Bed Temperature"]:
             self.create_field(setting)
         
         self.open_button = tk.Button(self.root, text="Open GCode File", command=self.open_file, fg='white', bg='#666', font=('Arial', 12))
@@ -51,9 +51,9 @@ class GCodeEditor:
     def update_fields(self, event):
         # Hardcoding layer defaults directly within the update function
         layer_defaults = {
-            "Layer 1": {"Print Speed": "5", "Nozzle Temperature": "210", "Bed Temperature": "70", "Layer Height": ".25"},
-            "Layer 2": {"Print Speed": "40", "Nozzle Temperature": "200", "Bed Temperature": "65", "Layer Height": ".2"},
-            "Layer 3": {"Print Speed": "150", "Nozzle Temperature": "190", "Bed Temperature": "60", "Layer Height": ".16"},
+            "Layer 1": {"Print Speed": "5", "Nozzle Temperature": "215", "Bed Temperature": "70"},
+            "Layer 2": {"Print Speed": "40", "Nozzle Temperature": "210", "Bed Temperature": "65"},
+            "Layer 3": {"Print Speed": "150", "Nozzle Temperature": "200", "Bed Temperature": "60"}
         }
         layer = self.layer_option.get()
         for setting, entry_var in self.fields.items():
@@ -73,9 +73,9 @@ class GCodeEditor:
         
         # Hardcoding layer defaults directly within the save function
         layer_defaults = {
-            "Layer 1": {"Print Speed": "5", "Nozzle Temperature": "210", "Bed Temperature": "70", "Layer Height": ".25"},
-            "Layer 2": {"Print Speed": "40", "Nozzle Temperature": "200", "Bed Temperature": "65", "Layer Height": ".2"},
-            "Layer 3": {"Print Speed": "150", "Nozzle Temperature": "190", "Bed Temperature": "60", "Layer Height": ".16"},
+            "Layer 1": {"Print Speed": "5", "Nozzle Temperature": "215", "Bed Temperature": "70"},
+            "Layer 2": {"Print Speed": "40", "Nozzle Temperature": "210", "Bed Temperature": "65"},
+            "Layer 3": {"Print Speed": "150", "Nozzle Temperature": "200", "Bed Temperature": "60"}
         }
 
         # Hardcoding the identifiers for our custom settings in the G-code
